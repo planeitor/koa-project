@@ -1,0 +1,12 @@
+{
+  "name": "koa-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "repository": "https://github.com/planeitor/koa-project.git",
+  "author": "Yuly Velasquez, Santiago Alzate",
+  "license": "MIT",
+  "dependencies": {
+    "koa": "^2.13.4"
+  }
+}
