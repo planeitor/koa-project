@@ -1,0 +1,34 @@
+version: '3.7'
+
+volumes:
+  koa_core_data: {}
+
+services:
+  koa_core_db:
+    image: postgres:14.1
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: koa
+      POSTGRES_DB: postgres
+    ports:
+      - '54111:5432'
+    restart: unless-stopped
+    volumes:
+      - koa_core_data:/var/lib/postgresql/data
+
+  core_db_admin:
+    image: dpage/pgadmin4:6.4
+    depends_on:
+      - koa_core_db
+    environment:
+      GUNICORN_ACCESS_LOGFILE: /dev/null
+      PGADMIN_CONFIG_CONSOLE_LOG_LEVEL: 40
+      PGADMIN_DEFAULT_EMAIL: koa@localhost.local
+      PGADMIN_DEFAULT_PASSWORD: koa
+      PGADMIN_LISTEN_ADDRESS: 0.0.0.0
+      PGADMIN_SERVER_JSON_FILE: /servers/servers.json
+    ports:
+      - 127.0.0.1:54112:80
+    restart: unless-stopped
+    volumes:
+      - ./secrets/core-db-admin/:/servers/
