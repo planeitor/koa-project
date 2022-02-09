@@ -1,5 +1,5 @@
-// const { Sequelize } = require('sequelize')
-import { Sequelize } from 'sequelize'
+const { Sequelize } = require('sequelize')
+// import { Sequelize } from 'sequelize'
 // const { Sequelize } = await import('sequelize')
 
 const tableName = 'persons'
