@@ -21,33 +21,11 @@ const attributes = {
     type: Sequelize.STRING,
     field: 'lastnames',
   },
-  documentType: {
-    allowNull: false,
-    type: Sequelize.ENUM,
-    values: ['CC', 'CE', 'CD', 'PA', 'SC', 'PT', 'PE', 'RC', 'TI', 'CN', 'AS', 'NS', 'DE', 'SI'],
-    field: 'document_type',
-  },
   document: {
     allowNull: false,
     type: Sequelize.STRING,
     field: 'document',
-  },
-  birthdate: {
-    allowNull: false,
-    type: Sequelize.DATE,
-    field: 'birthdate',
-  },
-  sex: {
-    allowNull: false,
-    type: Sequelize.ENUM,
-    values: ['01', '02', '03'],
-    field: 'sex',
-  },
-  address: {
-    allowNull: false,
-    type: Sequelize.STRING,
-    field: 'address',
-  },
+  },  
   createdAt: {
     allowNull: false,
     type: Sequelize.DATE,

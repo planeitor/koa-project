@@ -1,8 +1,28 @@
-import koa from 'koa'
-import router from 'koa-router'
+import Koa from 'koa'
+import Router from 'koa-router'
 
-const app = koa()
+import persons from './personsEndpoints.js'
+import { createController } from './personsControllers.js'
 
-var _ = router() //Instantiate the router
+const app = new Koa()
 
-app.use(_.routes()) //Use the routes defined using the router
+var router = Router() //Instantiate the router
+
+//Use the routes defined using the router
+
+// router.get('/', persons)
+
+router.get('/', async (ctx, next) => {
+  ctx.body = 'Hello Koa'
+})
+
+router.post('/persons', createController)
+
+
+// app.use('/', persons)
+
+// app
+//   .use(router.routes())
+//   .use(router.allowedMethods());
+
+export { router }

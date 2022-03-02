@@ -17,7 +17,7 @@ class DB {
 
   async __connectionTest() {
     await this.sequelize.authenticate()
-    logger.info(`[Postgres]: connected to ${dbConfig.database} DB on port ${config.dbPort} and host ${config.dbHost}`)
+    console.log(`[Postgres]: connected to ${dbConfig.database} DB on port ${dbConfig.port} and host ${dbConfig.host}`)
   }
 }
 

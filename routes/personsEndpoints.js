@@ -1,11 +1,23 @@
-import router from 'koa-router'
+import Router from 'koa-router'
 
-import { createController } from './personsControllers.js'
+import { createController, test } from './personsControllers.js'
 
-var _ = router() //Instantiate the router
+var router = Router() //Instantiate the router
 
-_.post('/persons', createController)
 
-function *createController() {
-	this.body = body
-}
+router.post('/persons', createController)
+
+
+
+// router.get('/', test)
+
+router.get('/', async (ctx, next) => {
+  ctx.body = 'Hello Koa'
+})
+
+export default router
+
+
+// function *createController() {
+// 	this.body = body
+// }
